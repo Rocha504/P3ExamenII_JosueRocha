@@ -12,7 +12,7 @@ class Stack
 		void push(T);
 		T top();
 		void pop();
-		 
+		void print();
 	protected:
 		vector <T> pila;
 };

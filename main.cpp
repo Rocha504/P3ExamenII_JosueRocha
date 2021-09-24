@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include<vector>
-#include "Stack.h"
+#include "Stack.cpp"
 #include <cstring>
 #include<sstream>
+
 using namespace std;
  
 
@@ -53,8 +54,30 @@ vector<string> tokenizer(string linea){
 	
 }
 
-void evaluarOperacion(vector <string>){
+void evaluarOperacion(vector <string> operacion){
 	
+	string tipo=operacion[0];
+	string operador;
+	if(tipo=="I"){
+		Stack<int>* pila = new Stack<int>();
+		int aux1,aux2;
+		for(int i=0;i<operacion.size();i++){
+			string copia=operacion[i];
+			char copia2=copia[0];
+			if((int)copia2>=97){	
+				pila->push(stoi(operacion[i]));
+				//imprimir pila
+			}
+			else{
+				operador=operacion[i];
+				aux1=pila->top();
+				pila->pop();
+				aux2=pila->top();
+				pila->pop();
+				
+			}
+		}
+	}
 }
 
 int menu(){
