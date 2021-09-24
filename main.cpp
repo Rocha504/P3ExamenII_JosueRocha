@@ -58,13 +58,13 @@ void evaluarOperacion(vector <string> operacion){
 	
 	string tipo=operacion[0];
 	string operador;
-	if(tipo=="I"){
+	if(tipo=="I"){//Tipo int
 		Stack<int>* pila = new Stack<int>();
-		int aux1,aux2;
+		int aux1,aux2,resultado;
 		for(int i=0;i<operacion.size();i++){
 			string copia=operacion[i];
 			char copia2=copia[0];
-			if((int)copia2>=97){	
+			if(isdigit(copia2)){	
 				pila->push(stoi(operacion[i]));
 				//imprimir pila
 			}
@@ -74,10 +74,69 @@ void evaluarOperacion(vector <string> operacion){
 				pila->pop();
 				aux2=pila->top();
 				pila->pop();
-				
+				if(operador=="+"){
+					resultado=aux1+aux2;
+					pila->push(resultado);
+					//imprimir pila
+				}
+				else
+					if(operador=="-"){
+						resultado=aux1-aux2;
+						pila->push(resultado);
+					}
+				else
+					if(operador=="/"){
+						resultado=aux1/aux2;
+						pila->push(resultado);
+					}
+				else
+					if(operador=="*"){
+						resultado=aux1*aux2;
+						pila->push(resultado);
+					}
 			}
 		}
 	}
+	else
+		if(tipo=="F"){//Tipo Float
+			Stack<float>* pila = new Stack<float>();
+		float aux1,aux2,resultado;
+		for(int i=0;i<operacion.size();i++){
+			string copia=operacion[i];
+			char copia2=copia[0];
+			if(isdigit(copia2)){	
+				pila->push(stoi(operacion[i]));
+				//imprimir pila
+			}
+			else{
+				operador=operacion[i];
+				aux1=pila->top();
+				pila->pop();
+				aux2=pila->top();
+				pila->pop();
+				if(operador=="+"){
+					resultado=aux1+aux2;
+					pila->push(resultado);
+					//imprimir pila
+				}
+				else
+					if(operador=="-"){
+						resultado=aux1-aux2;
+						pila->push(resultado);
+					}
+				else
+					if(operador=="/"){
+						resultado=aux1/aux2;
+						pila->push(resultado);
+					}
+				else
+					if(operador=="*"){
+						resultado=aux1*aux2;
+						pila->push(resultado);
+					}
+			}
+		}
+		}
 }
 
 int menu(){
