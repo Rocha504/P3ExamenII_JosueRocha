@@ -77,22 +77,25 @@ void evaluarOperacion(vector <string> operacion){
 				if(operador=="+"){
 					resultado=aux1+aux2;
 					pila->push(resultado);
-					//imprimir pila
+					pila->print();
 				}
 				else
 					if(operador=="-"){
 						resultado=aux1-aux2;
 						pila->push(resultado);
+						pila->print();
 					}
 				else
 					if(operador=="/"){
 						resultado=aux1/aux2;
 						pila->push(resultado);
+						pila->print();
 					}
 				else
 					if(operador=="*"){
 						resultado=aux1*aux2;
 						pila->push(resultado);
+						pila->print();
 					}
 			}
 		}
@@ -106,7 +109,7 @@ void evaluarOperacion(vector <string> operacion){
 			char copia2=copia[0];
 			if(isdigit(copia2)){	
 				pila->push(stoi(operacion[i]));
-				//imprimir pila
+				pila->print();
 			}
 			else{
 				operador=operacion[i];
@@ -117,22 +120,25 @@ void evaluarOperacion(vector <string> operacion){
 				if(operador=="+"){
 					resultado=aux1+aux2;
 					pila->push(resultado);
-					//imprimir pila
+					pila->print();
 				}
 				else
 					if(operador=="-"){
 						resultado=aux1-aux2;
 						pila->push(resultado);
+						pila->print();
 					}
 				else
 					if(operador=="/"){
 						resultado=aux1/aux2;
 						pila->push(resultado);
+						pila->print();
 					}
 				else
 					if(operador=="*"){
 						resultado=aux1*aux2;
 						pila->push(resultado);
+						pila->print();
 					}
 			}
 		}

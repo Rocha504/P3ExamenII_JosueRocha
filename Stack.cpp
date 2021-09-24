@@ -26,6 +26,7 @@ T Stack<T>::top(){
 
 template<class T>
 void Stack<T>::print(){
+	cout<<"ESTADO ACTUAL DE LA PILA"<<endl;
 	for(int i=0;i<this->pila.size();i++){
 		
 		cout<<"["<<this->pila[i]<<"]"<<endl;
