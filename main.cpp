@@ -23,8 +23,7 @@ int main(int argc, char** argv) {
 			for(int i=0;i<operaciones.size();i++){
 				evaluarOperacion(operaciones[i]);
 				cout<<"----------------------------------------"<<endl;
-			}
-			
+			}	
 		}
 	}
 	return 0;
@@ -36,10 +35,16 @@ vector<vector<string>> leerArchivo(string nombreA){
 	vector<vector<string>> operaciones;
 	ifstream archivo;
 	archivo.open(nombreA.c_str(),ios::in);
+	
+	if(archivo.fail()){
+		cout<<"KE"<<endl;
+	}
+	
 	while(!archivo.eof()){
 		getline(archivo,linea);
-		operaciones.push_back(tokenizer(linea));
+		operaciones.push_back(tokenizer(linea));	
 	}
+	
 	return operaciones;
 }
 
@@ -48,7 +53,7 @@ vector<string> tokenizer(string linea){
 	string aux;
 	vector<string> operacion;
 	stringstream check(linea);
-	while(getline(check,aux, ',')){
+	while(getline(check,aux,',')){
     	operacion.push_back(aux);
 	}
 	return operacion;
@@ -67,7 +72,7 @@ void evaluarOperacion(vector <string> operacion){
 			char copia2=copia[0];
 			if(isdigit(copia2)){	
 				pila->push(stoi(operacion[i]));
-				//imprimir pila
+				pila->print();
 			}
 			else{
 				operador=operacion[i];
